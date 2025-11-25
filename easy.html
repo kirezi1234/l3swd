@@ -1,0 +1,296 @@
+<!DOCTYPE html>
+<html>
+<head>
+
+<title>Gen Z Developers</title>
+
+<style>
+
+* {
+   margin:0;
+    padding:0;
+     box-sizing:border-box;
+      font-family:'Poppins', sans-serif; }
+
+body { 
+  background: url('pag.jpg') center/cover no-repeat fixed; 
+  transition: background 0.4s ease, color 0.3s;
+  color: #ffa20c;
+  line-height:1.6; 
+}
+
+
+/* ===== DARK MODE ===== */
+body[data-theme="dark"] { 
+  background: url('NI.jpg') center/cover no-repeat fixed;
+  color:#eee;
+}
+
+/* ===== Navbar ===== */
+.navbar {
+  background: rgba(255, 140, 9, 0.95);
+  display:flex;
+  justify-content:space-between; 
+  align-items:left;
+  color: #ff9410;
+  background: transparent;
+  padding:20px 60px; 
+  position:sticky; top:0;
+  z-index:1000;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+}
+
+body[data-theme="dark"] .navbar { 
+  background-image: url('NI.JPG');
+  color: #ff8d0b;
+}
+
+.logo { font-size:28px; font-weight:bold; color:orange; }
+
+.menu a { 
+  margin:0 15px; 
+  text-decoration:none; 
+  font-weight:600;
+  color:#111;
+  transition: color 0.3s;
+}
+body[data-theme="dark"] .menu a { color:#ff9410; }
+.menu a:hover { color: rgb(223,153,14); }
+
+.theme-toggle { 
+  padding:8px 14px; 
+  border:none; 
+  border-radius:8px; 
+  cursor:pointer; 
+  background:#ddd;
+  transition:0.3s; 
+}
+.theme-toggle:hover { background:#bbb; }
+
+
+.dropdown {
+  position: relative;
+  display: inline-block;
+  margin: 0 15px;
+}
+
+.dropdown-btn {
+  text-decoration: none;
+  font-weight: 600;
+  color: #111;
+  cursor: pointer;
+  padding: 0 5px;
+}
+
+body[data-theme="dark"] .dropdown-btn { color: #ff8d0b; }
+
+.dropdown-content {
+  display: none;
+  position: absolute;
+  background: white;
+  min-width: 180px;
+  box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+  border-radius: 8px;
+  overflow: hidden;
+  z-index: 1000;
+}
+
+body[data-theme="dark"] .dropdown-content {
+   background-image: url('NI.JPG'); 
+  }
+
+.dropdown-content a {
+  display: block;
+  padding: 12px 15px;
+  text-decoration: none;
+  color: #111;
+  font-weight: 500;
+}
+
+body[data-theme="dark"] .dropdown-content a { 
+  color: #eee; 
+}
+
+.dropdown-content a:hover {
+  background: rgb(0, 0, 0);
+  color: white;
+}
+
+
+.dropdown:hover .dropdown-content { 
+  display: block;  
+}
+
+
+.hero { 
+  text-align:center;
+  padding:100px 20px 60px 20px; 
+  background: rgba(0,0,0,0.4);
+  color:#fff; 
+}
+.hero h1 {
+   font-size:48px;
+  margin-bottom:20px; 
+  color:orange;
+ }
+.hero p {
+   font-size:1.2rem;
+    max-width:700px;
+     margin:0 auto; 
+    }
+
+
+.container { width:90%; max-width:1200px; margin:60px auto; }
+
+.coder-grid { 
+  display: grid; 
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); 
+  gap: 40px; 
+}
+
+.coder-card {
+  background:#fff;
+  border-radius:20px; 
+  overflow:hidden; 
+  text-align:center;
+  box-shadow:0 8px 20px rgba(0,0,0,0.15); 
+  transition: transform 0.3s, box-shadow 0.3s;
+}
+
+body[data-theme="dark"] .coder-card { 
+  background-image: url('NI.JPG');
+  color:#000000; 
+  box-shadow:0 8px 20px rgb(77, 255, 28); 
+}
+
+.coder-card:hover { 
+  transform:translateY(-8px);
+  box-shadow:0 16px 30px rgba(0,0,0,0.25); 
+}
+
+.coder-card video { 
+  width:100%; 
+  height:220px; 
+  object-fit:cover; 
+}
+
+@media(min-width:1200px){
+  .coder-card video {
+     height:280px;
+     }
+}
+
+footer {
+  text-align:center;
+  padding:30px 20px;
+  background:#222;
+  color:#eee;
+  margin-top:50px; 
+}
+
+body[data-theme="dark"] footer { 
+  background-image: url('NI.JPG');
+color: rgb(0, 0, 0);
+}
+
+
+@media(max-width:768px){
+  .navbar { 
+    padding:15px 20px; 
+    flex-wrap:wrap; 
+  }
+  .hero h1 { font-size:32px; }
+  .hero p { font-size:1rem; }
+  .coder-card video { height:180px; }
+}
+</style>
+</head>
+
+<body>
+
+
+<div class="navbar">
+  <div class="logo">GEN Z</div>
+  <div class="menu">
+    <a href="class website .genz.html">HOME</a>
+    <a href="ABOUT US.HTML">ABOUT</a>
+    <a href="services.html">SERVICE</a>
+    <a href="contact us.html">CONTACT</a>
+
+    <div class="dropdown">
+      <span class="dropdown-btn">PROJECTS </span>
+      <div class="dropdown-content">
+        <a href="cal.html">Simple Calculator</a>
+        <a href="sc.html">Scientific Calculator</a>
+       
+       
+      </div>
+    </div>
+     <div class="dropdown">
+      <span class="dropdown-btn">HELP </span>
+      <div class="dropdown-content">
+        <a href="qeution.html">QUESTION</a>
+        <a href="text area.html">COMMANDS</a>
+      </div></div>
+
+    
+    <button class="theme-toggle" onclick="toggleTheme()">🌙</button>
+  </div>
+</div>
+
+
+<section class="hero">
+  <h1>Welcome to GEN Z Developers</h1>
+  <p>We are a team of professional developers helping clients bring ideas to life using modern technology.</p>
+</section>
+
+
+<div class="container">
+  <div class="coder-grid">
+    <div class="coder-card"><video src="wt.mp4" autoplay muted loop playsinline></video>
+    <P>WEB APPLICATION</P>
+    </div>
+    <div class="coder-card"><video src="ht.mp4" autoplay muted loop playsinline></video>
+    
+    <P>GAME  APPLICATION</P>
+  </div>
+    <div class="coder-card"><video src="pt.mp4" autoplay muted loop playsinline></video>
+      <P>SERVE APPLICATION</P>
+    </div>
+    <div class="coder-card"><video src="df.mp4" autoplay muted loop playsinline></video>
+      <P>APPLICATION</P>
+    </div>
+    <div class="coder-card"><video src="WORKS.mp4" autoplay muted loop playsinline></video>
+      
+      <P>Cyber security </P>
+    </div>
+    <div class="coder-card"><video src="GG.mp4" autoplay muted loop playsinline></video>
+       <P>WEB development</P>
+    </div>
+  </div>
+</div>
+
+<!-- Footer -->
+<footer>
+  <p>&copy;2025 Gen Z Developers. All rights reserved.</p>
+</footer>
+
+<script>
+function toggleTheme(){
+  const body = document.body;
+  const btn = document.querySelector('.theme-toggle');
+  
+  const dark = body.getAttribute('data-theme') === 'dark';
+  
+  if(dark){
+    body.removeAttribute('data-theme');
+    btn.textContent = '🌙';
+  } else {
+    body.setAttribute('data-theme','dark');
+    btn.textContent = '☀️';
+  }
+}
+</script>
+
+</body>
+</html>

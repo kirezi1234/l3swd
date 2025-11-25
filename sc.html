@@ -1,0 +1,212 @@
+<!DOCTYPE html>
+<html lang=>
+<head>
+  <title>Scientific calculator</title>
+  <style>
+    body {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      flex-direction: column;
+      height: 100vh;
+      margin: 0;
+      background-color: rgba(0, 0, 0, 0.414);
+      font-family: Arial, sans-serif;
+      color: white;
+      text-align: center;
+    }
+
+    header h1 {
+      margin-bottom: 10px;
+      font-size: 1.8rem;
+      color: white;
+    }
+
+    a {
+      color: #d9fffa;
+      text-decoration: none;
+      font-weight: bold;
+      margin-bottom: 15px;
+      display: inline-block;
+    }
+
+    a:hover {
+      text-decoration: underline;
+    }
+
+    p {
+      margin-bottom: 20px;
+      color: #e0f7f5;
+    }
+
+    .calculator {
+      background: #080259;
+      padding: 20px;
+      border-radius: 15px;
+      box-shadow: 0 0 20px rgba(0, 0, 0, 0.4);
+    }
+
+    input {
+      width: 240px;
+      height: 50px;
+      text-align: right;
+      margin-bottom: 10px;
+      font-size: 1.5rem;
+      border: none;
+      outline: none;
+      background: #000000;
+      border-radius: 8px;
+      padding: 5px;
+      color: #e8f0ef;
+      font-weight: bold;
+    }
+
+    button {
+      width: 50px;
+      height: 35px;
+      margin: 2px;
+      font-size: 1.2rem;
+      border: none;
+      border-radius: 8px;
+      background: #000000; /* teal button */
+      color: rgb(255, 255, 255);
+      cursor: pointer;
+      transition: 0.25s;
+    }
+
+    button:hover {
+      background: #aab304;
+    }
+
+    footer {
+      margin-top: 25px;
+      color: #d9fffa;
+      font-size: 0.9rem;
+    }
+  </style>
+</head>
+<body>
+
+
+    
+
+    <div class="calculator">
+      <input type="text" id="display" placeholder="0" readonly>
+
+      <div class="buttons">
+        <button onclick="appendFunction('sin(')">sin</button>
+        <button onclick="appendFunction('cos(')">cos</button>
+        <button onclick="appendFunction('tan(')">tan</button>
+        <button onclick="appendFunction('asin(')">asin</button><br>
+        <button onclick="appendFunction('acos(')">acos</button>
+        <button onclick="appendFunction('atan(')">atan</button>
+        <button onclick="appendFunction('log(')">log</button>
+        <button onclick="appendFunction('sqrt(')">√</button>
+        <br>
+        
+        <button onclick="appendFunction('^')">xʸ</button>
+        <button onclick="appendFunction('pi')">π</button>
+        <button onclick="appendFunction('e')">e</button>
+        <button onclick="clearDisplay()">C</button><br>
+
+        <button onclick="appendOperator('/')">÷</button>
+        <button onclick="appendOperator('*')">×</button>
+        <button onclick="appendOperator('-')">−</button>
+        <button onclick="appendOperator('+')">+</button><br>
+  
+
+        <button onclick="appendToDisplay('9')">9</button>
+        <button onclick="appendToDisplay('8')">8</button>
+        <button onclick="appendToDisplay('7')">7</button>
+        <button onclick="deleteLast()">⌫</button><br>
+         
+
+        <button onclick="appendToDisplay('6')">6</button>
+        <button onclick="appendToDisplay('5')">5</button>
+        <button onclick="appendToDisplay('4')">4</button>
+        <button onclick="appendToDisplay('.')">.</button><br>
+
+        <button onclick="appendToDisplay('3')">3</button>
+        <button onclick="appendToDisplay('2')">2</button>
+        <button onclick="appendToDisplay('1')">1</button>
+        <button onclick="appendToDisplay('0')">0</button><br>
+               <button onclick="appendToDisplay('(')">(</button>
+        <button onclick="appendToDisplay(')')">)</button>
+<button onclick="calculateResult()">=</button>
+       
+        
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    <p>© 2025 NEW GENERATION HACKERS. All rights reserved.</p>
+  </footer>
+
+  <script>
+    function appendToDisplay(value) {
+      const display = document.getElementById("display");
+      display.value += value;
+    }
+
+    function appendOperator(operator) {
+      const display = document.getElementById("display");
+      const current = display.value;
+      const operators = ['+', '-', '*', '/'];
+      if (operator === '-' && current === '') {
+        display.value += operator;
+        return;
+      }
+      if (current === '' || operators.includes(current.slice(-1))) {
+        return;
+      }
+      display.value += operator;
+    }
+
+    function appendFunction(func) {
+      const display = document.getElementById("display");
+      if (func === '^') display.value += '**';
+      else if (func === 'pi') display.value += Math.PI;
+      else if (func === 'e') display.value += Math.E;
+      else display.value += func;
+    }
+
+    function clearDisplay() {
+      document.getElementById("display").value = "";
+    }
+
+    function deleteLast() {
+      const display = document.getElementById("display");
+      display.value = display.value.slice(0, -1);
+    }
+
+    function calculateResult() {
+      let display = document.getElementById("display");
+      let expression = display.value;
+      expression = expression.replace(/sin\(/g, "Math.sin(")
+                             .replace(/cos\(/g, "Math.cos(")
+                             .replace(/tan\(/g, "Math.tan(")
+                             .replace(/asin\(/g, "Math.asin(")
+                             .replace(/acos\(/g, "Math.acos(")
+                             .replace(/atan\(/g, "Math.atan(")
+                             .replace(/log\(/g, "Math.log10(")
+                             .replace(/sqrt\(/g, "Math.sqrt(");
+      try {
+        let result = eval(expression);
+        if (isNaN(result) || result === Infinity) display.value = "Error";
+        else display.value = result;
+      } catch {
+        display.value = "Error";
+      }
+    }
+
+    document.addEventListener("keydown", (e) => {
+      const validKeys = "0123456789+-*/().";
+      if (validKeys.includes(e.key)) appendToDisplay(e.key);
+      if (e.key === "Enter") calculateResult();
+      if (e.key === "Backspace") deleteLast();
+      if (e.key === "Escape") clearDisplay();
+    });
+  </script>
+</body>
+</html>

@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Document</title>
+</head>
+
+<style>
+ body {
+      background-image: url('SEA.jpg');
+      background-size: cover; 
+      background-position: center; 
+      background-repeat: repeat;
+      font-family: Verdana, Geneva, Tahoma, sans-serif;
+      height: 100vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+
+form {
+      background: rgba(0,0,0,0.4);
+      text-align: center;
+      padding: 40px;
+      border-radius: 10px;
+      box-shadow: 0 0 15px rgba(0,0,0,0.3);
+      width: 350px;
+    }
+
+h2 {
+      color: rgb(247, 176, 23);
+      font-size: 24px;
+      margin-bottom: 20px;
+    }
+
+input {
+      width: 90%;
+      padding: 10px;
+      margin: 10px 0;
+      border: none;
+      border-bottom: 2px solid rgb(245, 161, 15);
+      background: transparent;
+      font-size: 14px;
+      outline: none;
+      color: rgb(255, 255, 255);
+      transition: border-color 0.3s;
+    }
+
+textarea {
+      width: 90%;
+      height: 120px;
+      padding: 10px;
+      margin-top: 15px;
+      border-radius: 6px;
+      border: 2px solid rgb(245, 161, 15);
+      background: transparent;
+      color: white;
+      font-size: 14px;
+      outline: none;
+      resize: none;
+      transition: 0.3s;
+}
+
+.submit {
+      cursor: pointer;
+      padding: 10px;
+      width: 80%;
+      border-radius: 4px;
+      background-color: rgb(226, 135, 23);
+      color: black;
+      border: none;
+      transition: 0.3s;
+      font-size: 14px;
+      margin-top: 20px;
+}
+
+.submit:hover {
+      background-color: white;
+}
+
+.cmt {
+      text-align: center;
+      color: rgb(247, 176, 23);
+      margin-top: 25px;
+}
+
+p {
+      font-size: 14px;
+      color: white;
+}
+</style>
+
+<body>
+
+<form 
+    action="mailto:niyonkuruisrael68@gmail.com" 
+    method="POST" 
+    enctype="text/plain">
+
+    <h2>REGISTRATION</h2>
+
+    <input type="text" name="Full Name" placeholder="Enter full name" required><br>
+    <input type="email" name="Email" placeholder="Enter your email" required><br>
+
+    <h1 class="cmt">COMMANDS</h1>
+    <p>This is a place where the client gives commands to us about the product he/she needs.</p>
+
+    <textarea name="Command" placeholder="Write your command here..." required></textarea>
+    
+    <button type="submit" class="submit">Submit</button>
+</form>
+
+</body>
+</html>

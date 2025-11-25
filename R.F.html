@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="rw">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>REGISTRATION</title>
+  
+  <style>
+    body {
+      background-image: url('pag.jpg');      background-size: cover; 
+      background-position: center; 
+      background-repeat: repeat;
+      font-family: Verdana, Geneva, Tahoma, sans-serif;
+      height: 100vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+
+    form {
+        background: transparent;
+      text-align: center;
+      padding: 40px;
+      border-radius: 10px;
+      box-shadow: 0 0 15px rgba(0,0,0,0.3);
+      width: 320px;
+    }
+
+    h2 {
+      color: rgb(247, 176, 23);
+      font-size: 24px;
+      margin-bottom: 20px;
+    }
+
+    input {
+        background: transparent;
+      width: 90%;
+      padding: 10px;
+      margin: 10px 0;
+      border: none;
+      border-bottom: 2px solid rgb(245, 161, 15);
+      background: transparent;
+      font-size: 14px;
+      outline: wheat;
+      transition: border-color 0.3s;
+    }
+
+    input:focus {
+      border-bottom: 2px solid rgb(250, 128, 13);
+    }
+
+    .RS {
+      cursor: pointer;
+      padding: 10px;
+      width: 80%;
+      border-radius: 4px;
+      background-color: rgb(226, 135, 23);
+      color: rgb(0, 0, 0);
+      border: none;
+      transition: background-color 0.3s;
+      font-size: 14px;
+      margin: 10px 0;
+    }
+
+    .RS:hover {
+      background-color: rgb(255, 252, 252);
+    }
+
+    p {
+      font-size: 14px;
+    }
+
+    a {
+      color: darkgreen;
+      text-decoration: none;
+    }
+    input{
+        border-bottom: ;
+    }
+  </style>
+</head>
+<body>
+
+  <form id="accessForm">
+    <h2>REGISTRATION</h2>
+<di  class="input">
+    <input type="text" name="first_name" placeholder="Enter first name" required><br>
+    <input type="text" name="last_name" placeholder="Enter last name" required><br>
+    <input type="email" name="email" placeholder="Enter your email" required><br>
+    <input type="password" name="password" placeholder="Enter your password" required><br>
+    <input type="text" name="username" placeholder="Enter your username" required><br>
+<br>
+<br>
+<br>
+    <button  class="RS">Register</button>
+
+    <p>Have an account? <a href="form.html">Log in</a></p>
+    </di>
+  </form>
+
+  <script>
+    document.getElementById('accessForm').addEventListener('submit', function(e) {
+      e.preventDefault();
+
+      // Save form data locally
+      const formData = {
+        firstName: e.target.first_name.value,
+        lastName: e.target.last_name.value,
+        email: e.target.email.value,
+        username: e.target.username.value
+      };
+      localStorage.setItem('registrationData', JSON.stringify(formData));
+
+      alert('Registration successful!');
+      window.location.href = 'INDEX.html';
+    });
+  </script>
+</body>
+</html>
